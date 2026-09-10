@@ -1,0 +1,514 @@
+Paste this into a file named `index.html` in your GitHub repository:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name | Portfolio</title>
+
+  <style>
+    :root {
+      --background: #08111f;
+      --card: #10213a;
+      --text: #edf4ff;
+      --muted: #b6c4d8;
+      --accent: #65e0bd;
+      --border: rgba(255, 255, 255, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    .hero {
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(8, 17, 31, 0.78), rgba(8, 17, 31, 0.9)),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin: 10px 0;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    .label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: var(--accent);
+      color: #05241c;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    section {
+      padding: 65px 0;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .profile-image {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+    }
+
+    .category-grid,
+    .project-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .category-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+
+    .details-button {
+      padding: 10px 14px;
+      border: 1px solid var(--accent);
+      border-radius: 7px;
+      background: transparent;
+      color: var(--accent);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .details-button:hover {
+      background: var(--accent);
+      color: #05241c;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .info-table th {
+      color: var(--accent);
+      width: 35%;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 15px;
+    }
+
+    .tag {
+      background: rgba(101, 224, 189, 0.12);
+      color: var(--accent);
+      padding: 4px 9px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .github-link {
+      color: var(--accent);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 750px) {
+      .about,
+      .category-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        text-align: center;
+        justify-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <p class="label">Portfolio</p>
+      <h1>Your Name</h1>
+      <p>
+        Student, veteran, and problem-solver. This site highlights my education,
+        military service, work experience, and personal projects.
+      </p>
+      <a class="button" href="#projects">View My Projects</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="about">
+      <img
+        class="profile-image"
+        src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400&q=85"
+        alt="Replace this with a photo of yourself"
+      >
+
+      <div>
+        <p class="label">About Me</p>
+        <h2>Who I Am</h2>
+        <p>
+          Replace this with a short introduction about yourself. You can include
+          what you are studying, your career interests, personal strengths, and
+          the kind of work you want to do.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">Background</p>
+      <h2>My Experience</h2>
+      <p>Click “View Details” to open the information table for each category.</p>
+
+      <div class="category-grid">
+
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
+            alt="Students studying"
+          >
+          <div class="card-content">
+            <h3>Education</h3>
+            <p>Your degree, school, coursework, awards, and activities.</p>
+
+            <button class="details-button" onclick="toggleDetails('education')">
+              View Details
+            </button>
+
+            <table class="info-table" id="education" hidden>
+              <tr>
+                <th>School</th>
+                <td>Your University or School</td>
+              </tr>
+              <tr>
+                <th>Program</th>
+                <td>Your Degree / Major</td>
+              </tr>
+              <tr>
+                <th>Dates</th>
+                <td>202X - Present</td>
+              </tr>
+              <tr>
+                <th>Highlights</th>
+                <td>Relevant coursework, awards, clubs, GPA, etc.</td>
+              </tr>
+            </table>
+          </div>
+        </article>
+
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=80"
+            alt="School building"
+          >
+          <div class="card-content">
+            <h3>School Projects</h3>
+            <p>Projects completed through classes, teams, research, or presentations.</p>
+
+            <button class="details-button" onclick="toggleDetails('school-projects')">
+              View Details
+            </button>
+
+            <table class="info-table" id="school-projects" hidden>
+              <tr>
+                <th>Project</th>
+                <td>Example project title</td>
+              </tr>
+              <tr>
+                <th>Role</th>
+                <td>Developer, researcher, team lead, etc.</td>
+              </tr>
+              <tr>
+                <th>Tools</th>
+                <td>HTML, CSS, JavaScript, Python, etc.</td>
+              </tr>
+              <tr>
+                <th>Result</th>
+                <td>Briefly explain the outcome or what you learned.</td>
+              </tr>
+            </table>
+          </div>
+        </article>
+
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1519074031893-210d39bd3883?auto=format&fit=crop&w=900&q=80"
+            alt="Person looking across a landscape"
+          >
+          <div class="card-content">
+            <h3>Military Service</h3>
+            <p>Leadership, training, qualifications, accomplishments, and service.</p>
+
+            <button class="details-button" onclick="toggleDetails('military')">
+              View Details
+            </button>
+
+            <table class="info-table" id="military" hidden>
+              <tr>
+                <th>Branch</th>
+                <td>Your military branch</td>
+              </tr>
+              <tr>
+                <th>Role</th>
+                <td>Your job title or specialty</td>
+              </tr>
+              <tr>
+                <th>Dates</th>
+                <td>202X - 202X</td>
+              </tr>
+              <tr>
+                <th>Highlights</th>
+                <td>Leadership, training, awards, certifications, etc.</td>
+              </tr>
+            </table>
+          </div>
+        </article>
+
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80"
+            alt="Coworkers collaborating"
+          >
+          <div class="card-content">
+            <h3>Work Experience</h3>
+            <p>Professional roles, responsibilities, skills, and accomplishments.</p>
+
+            <button class="details-button" onclick="toggleDetails('work')">
+              View Details
+            </button>
+
+            <table class="info-table" id="work" hidden>
+              <tr>
+                <th>Company</th>
+                <td>Your Employer</td>
+              </tr>
+              <tr>
+                <th>Position</th>
+                <td>Your Job Title</td>
+              </tr>
+              <tr>
+                <th>Dates</th>
+                <td>202X - 202X</td>
+              </tr>
+              <tr>
+                <th>Impact</th>
+                <td>Add a responsibility, achievement, or measurable result.</td>
+              </tr>
+            </table>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="projects">
+      <p class="label">Selected Work</p>
+      <h2>Projects</h2>
+      <p>Add a new project by copying the template near the bottom of this file.</p>
+
+      <div class="project-grid">
+
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80"
+            alt="Code on a laptop"
+          >
+          <div class="card-content">
+            <h3>Project One</h3>
+            <p>Explain what you built, what problem it solves, and what your role was.</p>
+
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+
+            <a class="github-link" href="https://github.com/your-username" target="_blank">
+              View on GitHub →
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
+            alt="Data dashboard"
+          >
+          <div class="card-content">
+            <h3>Project Two</h3>
+            <p>Describe a school, work, team, or personal project here.</p>
+
+            <div class="tags">
+              <span class="tag">Research</span>
+              <span class="tag">Teamwork</span>
+            </div>
+
+            <a class="github-link" href="https://github.com/your-username" target="_blank">
+              View on GitHub →
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=80"
+            alt="People working at computers"
+          >
+          <div class="card-content">
+            <h3>Project Three</h3>
+            <p>Add another example of something you have built or contributed to.</p>
+
+            <div class="tags">
+              <span class="tag">Leadership</span>
+              <span class="tag">Problem Solving</span>
+            </div>
+
+            <a class="github-link" href="https://github.com/your-username" target="_blank">
+              View on GitHub →
+            </a>
+          </div>
+        </article>
+
+        <!--
+        COPY THIS BLOCK AND PASTE IT ABOVE TO ADD A NEW PROJECT:
+
+        <article class="card">
+          <img src="YOUR-IMAGE-URL" alt="Describe your project image">
+          <div class="card-content">
+            <h3>Project Title</h3>
+            <p>Explain what you made, why it matters, and what you contributed.</p>
+
+            <div class="tags">
+              <span class="tag">Skill One</span>
+              <span class="tag">Skill Two</span>
+            </div>
+
+            <a class="github-link" href="YOUR-GITHUB-PROJECT-LINK" target="_blank">
+              View on GitHub →
+            </a>
+          </div>
+        </article>
+        -->
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      © <span id="year"></span> Your Name ·
+      <a href="mailto:you@example.com">you@example.com</a> ·
+      <a href="https://github.com/your-username">GitHub</a>
+    </p>
+  </footer>
+
+  <script>
+    function toggleDetails(id) {
+      const table = document.getElementById(id);
+      table.hidden = !table.hidden;
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+```
